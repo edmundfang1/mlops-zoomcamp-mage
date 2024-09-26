@@ -22,7 +22,9 @@ blocks:
   configuration:
     file_source:
       path: homework_03/transformers/clean_data.py
-  downstream_blocks: []
+  downstream_blocks:
+  - x_var_list_of_dict
+  - y_train
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -35,6 +37,43 @@ blocks:
   upstream_blocks:
   - import_data
   uuid: clean_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_path: homework_03/transformers/x_var_list_of_dict.py
+    file_source:
+      path: homework_03/transformers/x_var_list_of_dict.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: x_var_list_of_dict
+  retry_config: null
+  status: updated
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - clean_data
+  uuid: x_var_list_of_dict
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: homework_03/transformers/y_train.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: y_train
+  retry_config: null
+  status: not_executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - clean_data
+  uuid: y_train
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
